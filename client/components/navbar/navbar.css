@@ -2,8 +2,33 @@
     text-decoration: none !important;
     color: black;
 }
+.smallHeadTitle{
+    border-bottom: 2px purple solid;
+}
+
+.test{
+    vertical-align: middle;
+}
 
 .custNav{
     background-color: white;
+    border-bottom: 2px solid;
+    
+}
+
+.navbar-default .navbar-collapse{
     border-color: purple;
+}
+
+.clearNav{
+    background-color: white;
+    border-color: white;
+}
+
+.navbar.center {
+    text-align: center;
+}
+.navbar.center .nav {
+    float: none;
+    display:inline-block;
 }
