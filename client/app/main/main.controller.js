@@ -4,8 +4,9 @@ angular.module('workspaceApp')
   .controller('MainCtrl', function ($scope, $http) {
     $scope.awesomeThings = [];
 
-    $http.get('/api/things').success(function(awesomeThings) {
+    $http.get('/api/posts').success(function(awesomeThings) {
       $scope.awesomeThings = awesomeThings;
+      console.log(awesomeThings);
     });
 
     $scope.addThing = function() {

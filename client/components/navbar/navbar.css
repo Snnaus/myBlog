@@ -18,11 +18,13 @@
 
 .navbar-default .navbar-collapse{
     border-color: purple;
+    background-color: ivory;
 }
 
 .clearNav{
     background-color: white;
     border-color: white;
+    background-color: ivory;
 }
 
 .navbar.center {

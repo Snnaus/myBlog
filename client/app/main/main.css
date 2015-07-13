@@ -1,3 +1,11 @@
+body{
+    background-color: ivory;
+}
+
+.articleTitle{
+    text-align: center;
+}
+
 .thing-form {
     margin: 20px 0;
 }
@@ -38,10 +46,16 @@
 .artImg{
     max-height: 100px;
     float: left;
-    padding: 0px 10px 10px 0px;
+    padding: 0px 10px 10px 10px;
 }
 
 .post{
-    border-bottom: 2px purple solid;
+    /*border-bottom: 2px purple solid;*/
+    margin-bottom: 30px;
+    box-shadow: 5px 5px 30px grey;
+    background-color: white;
 }
 
+p{
+    padding: 0px 10px 10px 10px;
+}
