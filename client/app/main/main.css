@@ -2,7 +2,7 @@ body{
     background-color: ivory;
 }
 
-.articleTitle{
+h4{
     text-align: center;
 }
 
@@ -50,7 +50,7 @@ body{
 }
 
 .post{
-    /*border-bottom: 2px purple solid;*/
+    border: 1px black solid;
     margin-bottom: 30px;
     box-shadow: 5px 5px 30px grey;
     background-color: white;

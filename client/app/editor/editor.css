@@ -1,0 +1,21 @@
+.row, #parent{
+    height: 100%;
+}
+
+#pad{
+    font-family: Menlo,Monaco,Consolas,"Courier New",monospace;
+    border: none;
+    overflow: auto;
+    resize: none;
+    min-height: 500px;
+    padding: 0px 30px 0px 30px;
+    box-shadow: 5px 5px 30px grey;
+    background-color: white;
+}
+
+img{
+    max-height: 100px;
+    float: left;
+    padding: 0px 10px 10px 10px;
+}
+
