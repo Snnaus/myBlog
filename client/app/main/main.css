@@ -1,9 +1,6 @@
+
 body{
     background-color: ivory;
-}
-
-h4{
-    text-align: center;
 }
 
 .thing-form {
@@ -56,6 +53,7 @@ h4{
     background-color: white;
 }
 
-p{
+p, h3, .postTitle, h5{
     padding: 0px 10px 10px 10px;
+    font-family: 'Ubuntu', sans-serif;
 }

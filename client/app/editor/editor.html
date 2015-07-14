@@ -4,18 +4,21 @@
     <div class=container>
         <div class='text-center' ng-hide='preview'>
         <input id=titleInp class='text-center' type='text' placeholder='Title' ng-model='title'>
-        <input id=authorInp class='text-center' type='text' placeholder='Title' ng-model='author'>
+        <input id=authorInp class='text-center' type='text' placeholder='Author' ng-model='author'>
     </div>
         <section class='row'>
-        <div class='hidden-xs col-sm-2 col-md-2 col-lg-2 '></div>
+        <div class='hidden-xs col-sm-2 col-md-2 col-lg-2 '>
+            <input id='tagInp' class='text-center' type=text placeholder='Tags (seperate by comma)' ng-model='postTags'>
+        </div>
         <textarea class='col-xs-12 col-sm-8 col-md-8 col-lg-8 inline-block center-block post' id='pad' ng-hide='preview' ng-model='typed'>Write the text here...</textarea>
         <div class='col-xs-12 col-sm-8 col-md-8 col-lg-8 inline-block center-block post' id=markdown ng-show='preview' ng-bind-html='result'></div>
     </section>
         <div class='row'>
         <div class='col-xs-6 col-md-6 col-lg-6'></div>
         <div class='col-xs-4 col-md-4 col-lg-4'>
-            <button class='btn btn-warning text-center' ng-click='convert(typed)' ng-hide='preview'>Preview</button>
+            <button class='btn btn-warning text-center' ng-click='convert(typed, date)' ng-hide='preview'>Preview</button>
             <button class='btn btn-danger' ng-click='goBack()' ng-show='preview'>Cancel</button>
+            <button class='btn btn-success' ng-click='savePost()' ng-show='preview'>Save</button>
         </div>
     </div>
     </div>
