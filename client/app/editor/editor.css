@@ -26,6 +26,15 @@ img{
 .smFooter{
     float: right;
 }
-.spanContainer{
+.fa-twitter:hover{
+    background-color: #55acee;
+    color: white;
+    border-radius: 20px;
+}
+
+.fa-facebook:hover{
+    background-color: #3B5998;
+    color: white;
+    border-radius: 20px;
 }
 

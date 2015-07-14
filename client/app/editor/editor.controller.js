@@ -34,8 +34,11 @@ angular.module('workspaceApp')
       if(content){
         var dateFor = date.getMonth()+ 1 +'/'+ date.getDate() +'/'+date.getFullYear();
         content = "<h2 class='postTitle'>"+$scope.title+ "</h2>" + '\n' + '#####' + dateFor + '\n' + content;
-        content = content + "\n \n" + "<sup><sub> Written by: "+ $scope.author + "</sub></sup>"+"\n"+"<sup><sub>"+"|| Tagged under: " + modTags + "</sub></sup>";
-        content = content + "<span class='fa-stack smFooter'><i class='fa fa-circle-thin fa-stack-2x'></i><i class='fa fa-twitter fa-stack-1x'></i></span>"+"<span class='fa-stack smFooter'><i class='fa fa-circle-thin fa-stack-2x'></i><i class='fa fa-facebook fa-stack-1x'></i></span>";
+        content = content + "\n \n" + "<sup><sub> Written by: "+ $scope.author + "</sub></sup>";
+        if(modTags){
+          content = content + "<sup><sub>"+" || Tagged under: " + modTags + "</sub></sup>";
+        }
+        content = content + "<span class='fa-stack smFooter'><i class='fa fa-twitter fa-stack-1x'></i></span>"+"<span class='fa-stack smFooter'><i class='fa fa-facebook fa-stack-1x'></i></span>";
         $scope.result = converter.makeHtml(content);
         //$scope.result = content;
         $scope.preview = true;
