@@ -13,7 +13,8 @@ var PostSchema = new Schema({
   body: String,
   markdown: String,
   thumbPic: String,
-  postDate: Object
+  postDate: Object,
+  urlID: String
 });
 
 module.exports = mongoose.model('Post', PostSchema);
