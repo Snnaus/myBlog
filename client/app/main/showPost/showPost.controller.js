@@ -2,10 +2,10 @@
 
 angular.module('workspaceApp')
   .controller('ShowPostCtrl', function ($scope, $routeParams, $http) {
-    $scope.awesomeThings = [];
+    $scope.posts = [];
     
     $http.get('/api/posts/'+$routeParams.id).success(function(post){
-      $scope.awesomeThings.push(post);
+      $scope.posts.push(post);
       console.log($routeParams, post);
     });
     

@@ -24,10 +24,11 @@ angular.module('workspaceApp')
     
     $scope.convert = function(content, date){
       var newTags = this.postTags.split([',']), modTags = null;
+      newTags = newTags.map(function(tag){return tag.trim()})
       console.log(newTags);
       if(newTags.length > 0 && newTags[0] !== ''){
         modTags = newTags.map(function(data){
-          return "<a href='/"+data+"'>"+data+"</a>";
+          return "<a href='/cat/"+data+"'>"+data+"</a>";
         }).reduce(function(prev, curr){
           return prev + ', '+ curr;
         });
@@ -52,7 +53,7 @@ angular.module('workspaceApp')
     };
     
     $scope.savePost = function(){
-      var newTags = this.postTags.split([',']);
+      var newTags = this.postTags.split([',']).map(function(tag){return tag.trim()});
       var urlID = this.dateFor +'/'+ this.title.split([' ']).join(['-']);
       console.log(urlID);
       var newPost = {
@@ -60,7 +61,7 @@ angular.module('workspaceApp')
         author: this.author,
         info: '',
         active: false,
-        tags: newTags,
+        category: newTags,
         body: this.result,
         markdown: this.typed,
         thumbPic: '',

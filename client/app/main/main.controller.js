@@ -2,11 +2,11 @@
 
 angular.module('workspaceApp')
   .controller('MainCtrl', function ($scope, $http, $routeParams) {
-    $scope.awesomeThings = [];
+    $scope.posts = [];
 
-    $http.get('/api/posts').success(function(awesomeThings) {
-      $scope.awesomeThings = awesomeThings;
-      console.log(awesomeThings);
+    $http.get('/api/posts').success(function(posts) {
+      $scope.posts = posts;
+      console.log(posts);
     });
 
     

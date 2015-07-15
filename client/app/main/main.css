@@ -53,8 +53,13 @@ body{
     background-color: white;
 }
 
-p, h3, .postTitle, h5{
+p, h3, .postTitle{
     padding: 0px 10px 10px 10px;
+    font-family: 'Ubuntu', sans-serif;
+}
+
+h5{
+    padding: 0px 10px 0px 10px;
     font-family: 'Ubuntu', sans-serif;
 }
 
