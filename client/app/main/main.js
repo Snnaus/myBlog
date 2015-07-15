@@ -6,5 +6,8 @@ angular.module('workspaceApp')
       .when('/', {
         templateUrl: 'app/main/main.html',
         controller: 'MainCtrl'
+      }).when('/:id/:postID?',{
+        templateUrl: 'app/main/main.html',
+        controller: 'ShowPostCtrl'
       });
   });
