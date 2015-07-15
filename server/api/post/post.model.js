@@ -13,6 +13,7 @@ var PostSchema = new Schema({
   markdown: String,
   thumbPic: String,
   postDate: Object,
+  formatDate: String,
   urlID: String
 });
 

@@ -3,7 +3,6 @@
 angular.module('workspaceApp')
   .controller('EditorCtrl', function ($scope, Auth, $location, $http) {
     //This is the authentication of the view.
-    $scope.isCollapsed = true;
     $scope.isLoggedIn = Auth.isLoggedIn();
     $scope.isAdmin = Auth.isAdmin();
     $scope.getCurrentUser = Auth.getCurrentUser();
@@ -24,7 +23,7 @@ angular.module('workspaceApp')
     
     $scope.convert = function(content, date){
       var newTags = this.postTags.split([',']), modTags = null;
-      newTags = newTags.map(function(tag){return tag.trim()})
+      newTags = newTags.map(function(tag){return tag.trim()});
       console.log(newTags);
       if(newTags.length > 0 && newTags[0] !== ''){
         modTags = newTags.map(function(data){
@@ -66,9 +65,10 @@ angular.module('workspaceApp')
         markdown: this.typed,
         thumbPic: '',
         postDate: this.date,
-        urlID: urlID
+        urlID: urlID,
+        formatDate: this.dateFor
       };
       $http.post('/api/posts', newPost);
-      $location.path('/');
+      $location.path('/fileManage');
     };
   });
