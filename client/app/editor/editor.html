@@ -3,21 +3,21 @@
 <div id=parent class='container'>
     <div class=container>
         <div class='text-center' ng-hide='preview'>
-        <input id=titleInp class='text-center' type='text' placeholder='Title' ng-model='title'>
-        <input id=authorInp class='text-center' type='text' placeholder='Author' ng-model='author'>
+        <input id=titleInp class='text-center' type='text' placeholder='Title' ng-model='editPost.name'>
+        <input id=authorInp class='text-center' type='text' placeholder='Author' ng-model='editPost.author'>
     </div>
         <section class='row'>
         <div class='hidden-xs hidden-sm col-md-2 col-lg-2 '>
         </div>
-        <textarea class='col-xs-12 col-sm-12 col-md-8 col-lg-8 inline-block center-block post' id='pad' ng-hide='preview' ng-model='typed'>Write the text here...</textarea>
-        <div class='col-xs-12 col-sm-12 col-md-8 col-lg-8 inline-block center-block post' id=markdown ng-show='preview' ng-bind-html='result'></div>
+        <textarea class='col-xs-12 col-sm-12 col-md-8 col-lg-8 inline-block center-block post' id='pad' ng-hide='preview' ng-model='editPost.markdown'>Write the text here...</textarea>
+        <div class='col-xs-12 col-sm-12 col-md-8 col-lg-8 inline-block center-block post' id=markdown ng-show='preview' ng-bind-html='editPost.body'></div>
     </section>
         <div class='row'>
         <div class='col-xs-6 col-md-6 col-lg-6'>
             <input id='tagInp' class='text-center' type=text placeholder='Tags (seperate by comma)' ng-model='postTags' ng-hide='preview'>
         </div>
         <div class='col-xs-4 col-md-4 col-lg-4'>
-            <button class='btn btn-warning text-center' ng-click='convert(typed, date)' ng-hide='preview'>Preview</button>
+            <button class='btn btn-warning text-center' ng-click='convert(editPost.markdown, editPost.postDate)' ng-hide='preview'>Preview</button>
             <button class='btn btn-danger' ng-click='goBack()' ng-show='preview'>Cancel</button>
             <button class='btn btn-success' ng-click='savePost()' ng-show='preview'>Save</button>
         </div>

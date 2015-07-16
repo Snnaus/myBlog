@@ -6,5 +6,8 @@ angular.module('workspaceApp')
       .when('/editor', {
         templateUrl: 'app/editor/editor.html',
         controller: 'EditorCtrl'
+      }).when('/editor/:id', {
+        templateUrl: 'app/editor/editor.html',
+        controller: 'EditPostCtrl'
       });
   });

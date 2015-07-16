@@ -8,12 +8,17 @@ angular.module('workspaceApp')
     $scope.getCurrentUser = Auth.getCurrentUser();
     
     //This is all of the post relevant items for the view.
+    $scope.editPost = {
+      name: '',
+      author: 'Glenn Nausley',
+      info: '',
+      active: false,
+      body: '',
+      markdown: '',
+      thumbPic: '',
+      postDate: new Date(),
+    };
     $scope.preview = false;
-    $scope.typed = '';
-    $scope.result = '';
-    $scope.title = '';
-    $scope.author = 'Glenn Nausley';
-    $scope.date = new Date();
     $scope.postTags = '';
     /*if($scope.isLoggedIn === false){
       $location.path('/');
@@ -33,15 +38,15 @@ angular.module('workspaceApp')
         });
       }
       if(content){
-        $scope.dateFor = date.getMonth()+ 1 +'/'+ date.getDate() +'/'+date.getFullYear();
-        content = "<h2 class='postTitle'>"+$scope.title+ "</h2>" + '\n' + '#####' + $scope.dateFor + '\n' + content;
-        content = content + "\n \n" + "<sup><sub> Written by: "+ $scope.author + "</sub></sup>";
+        $scope.editPost.formatDate = date.getMonth()+ 1 +'/'+ date.getDate() +'/'+date.getFullYear();
+        content = "<h2 class='postTitle'>"+$scope.editPost['name']+ "</h2>" + '\n' + '#####' + $scope.editPost.formatDate + '\n' + content;
+        content = content + "\n \n" + "<sup><sub> Written by: "+ $scope.editPost.author + "</sub></sup>";
         if(modTags){
           content = content + "<sup><sub>"+" || Tagged under: " + modTags + "</sub></sup>";
         }
-        content = content + "<a href='http://twitter.com/intent/tweet?status="+$scope.title + " by "+$scope.author+"'><span class='fa-stack smFooter'><i class='fa fa-twitter fa-stack-1x'></i></span></a>"+"<a ><span class='fa-stack smFooter'><i class='fa fa-facebook fa-stack-1x'></i></span></a>";
+        content = content + "<a href='http://twitter.com/intent/tweet?status="+$scope.editPost['name'] + " by "+$scope.editPost.author+"'><span class='fa-stack smFooter'><i class='fa fa-twitter fa-stack-1x'></i></span></a>"+"<a ><span class='fa-stack smFooter'><i class='fa fa-facebook fa-stack-1x'></i></span></a>";
         //href='http://www.facebook.com/sharer/sharer.php?u=[URL]&title='"+$scope.title + " by "+$scope.author+"'
-        $scope.result = converter.makeHtml(content);
+        $scope.editPost.body = converter.makeHtml(content);
         //$scope.result = content;
         $scope.preview = true;
       }
@@ -53,22 +58,11 @@ angular.module('workspaceApp')
     
     $scope.savePost = function(){
       var newTags = this.postTags.split([',']).map(function(tag){return tag.trim()});
-      var urlID = this.dateFor +'/'+ this.title.split([' ']).join(['-']);
+      var urlID = this.dateFor +'/'+ this.editPost.name.split([' ']).join(['-']);
       console.log(urlID);
-      var newPost = {
-        name: this.title,
-        author: this.author,
-        info: '',
-        active: false,
-        category: newTags,
-        body: this.result,
-        markdown: this.typed,
-        thumbPic: '',
-        postDate: this.date,
-        urlID: urlID,
-        formatDate: this.dateFor
-      };
-      $http.post('/api/posts', newPost);
+      $scope.editPost['category'] = newTags;
+      $scope.editPost['urlID'] = urlID;
+      $http.post('/api/posts', $scope.editPost);
       $location.path('/fileManage');
     };
   });
