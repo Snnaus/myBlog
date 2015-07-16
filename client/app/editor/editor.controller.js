@@ -6,12 +6,8 @@ angular.module('workspaceApp')
     $scope.isLoggedIn = Auth.isLoggedIn();
     $scope.isAdmin = Auth.isAdmin();
     $scope.getCurrentUser = Auth.getCurrentUser();
-    if($scope.isAdmin === false){
-      if($scope.isLoggedIn){
-        $location.path('/settings')
-      } else{
-        $location.path('/');
-      }
+    if($scope.isLoggedIn === false){
+      $location.path('/');
     }
     
     //This is all of the post relevant items for the view.

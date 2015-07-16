@@ -3,10 +3,10 @@
 angular.module('workspaceApp')
   .controller('FileManageCtrl', function ($scope, $http, $location, Auth) {
     //This is the authentication of the view.
-    $scope.isLoggedIn = Auth.isLoggedIn();
+   $scope.isLoggedIn = Auth.isLoggedIn();
     $scope.isAdmin = Auth.isAdmin();
     $scope.getCurrentUser = Auth.getCurrentUser();
-    if($scope.isAdmin === false){
+    if($scope.isLoggedIn === false){
       $location.path('/login');
     }
     
