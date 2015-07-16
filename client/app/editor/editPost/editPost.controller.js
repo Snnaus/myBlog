@@ -3,6 +3,18 @@
 angular.module('workspaceApp')
   .controller('EditPostCtrl', function ($scope, $routeParams, Auth, $http, $location) {
     
+     //This is the authentication of the view.
+    $scope.isLoggedIn = Auth.isLoggedIn();
+    $scope.isAdmin = Auth.isAdmin();
+    $scope.getCurrentUser = Auth.getCurrentUser();
+    if($scope.isAdmin === false){
+      if($scope.isLoggedIn){
+        $location.path('/settings')
+      } else{
+        $location.path('/');
+      }
+    }
+    
     $scope.editPost = {};
     $http.get('/api/posts/'+$routeParams.id).success(function(post){
       $scope.editPost = post;
@@ -10,17 +22,11 @@ angular.module('workspaceApp')
       $scope.editPost.postDate = new Date(post.postDate);
     });
     
-    //This is the authentication of the view.
-    $scope.isLoggedIn = Auth.isLoggedIn();
-    $scope.isAdmin = Auth.isAdmin();
-    $scope.getCurrentUser = Auth.getCurrentUser();
-    
+   
     //This is all of the post relevant items for the view.
     $scope.preview = false;
     
-    if($scope.isLoggedIn === false){
-      $location.path('/');
-    }
+    
     
     var converter = new showdown.Converter();
     

@@ -6,7 +6,7 @@ angular.module('workspaceApp')
     $scope.isLoggedIn = Auth.isLoggedIn();
     $scope.isAdmin = Auth.isAdmin();
     $scope.getCurrentUser = Auth.getCurrentUser();
-    if($scope.isLoggedIn === false){
+    if($scope.isAdmin === false){
       $location.path('/login');
     }
     

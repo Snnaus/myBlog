@@ -6,6 +6,13 @@ angular.module('workspaceApp')
     $scope.isLoggedIn = Auth.isLoggedIn();
     $scope.isAdmin = Auth.isAdmin();
     $scope.getCurrentUser = Auth.getCurrentUser();
+    if($scope.isAdmin === false){
+      if($scope.isLoggedIn){
+        $location.path('/settings')
+      } else{
+        $location.path('/');
+      }
+    }
     
     //This is all of the post relevant items for the view.
     $scope.editPost = {
@@ -20,9 +27,7 @@ angular.module('workspaceApp')
     };
     $scope.preview = false;
     $scope.postTags = '';
-    if($scope.isLoggedIn === false){
-      $location.path('/');
-    }
+    
     
     var converter = new showdown.Converter();
     
