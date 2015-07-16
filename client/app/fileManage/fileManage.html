@@ -9,7 +9,7 @@
                 <a href='/id/{{post._id}}'>
                     {{post.name +' posted: '+post.formatDate}}
                 </a>
-                <button id='editBTN' class='btn btn-info'>Edit</button>
+                <button id='editBTN' class='btn btn-info' ng-click='editPostRe(post._id)'>Edit</button>
                 <button id='deleteBTN' class='btn btn-danger' ng-click='deletePost(post)'>Delete</button>
             </div>
         </li>

@@ -24,4 +24,8 @@ angular.module('workspaceApp')
     $scope.createPostRe = function(){
       $location.path('/editor');
     };
+    
+    $scope.editPostRe = function(id){
+      $location.path('/editor/'+id);
+    }
   });
