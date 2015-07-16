@@ -18,9 +18,9 @@ angular.module('workspaceApp')
     //This is all of the post relevant items for the view.
     $scope.preview = false;
     
-    /*if($scope.isLoggedIn === false){
+    if($scope.isLoggedIn === false){
       $location.path('/');
-    }*/
+    }
     
     var converter = new showdown.Converter();
     

@@ -5,3 +5,7 @@
 #manageLi{
     margin-bottom: 10px;
 }
+
+#newPost{
+    float: right;
+}

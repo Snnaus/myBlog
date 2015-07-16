@@ -20,9 +20,9 @@ angular.module('workspaceApp')
     };
     $scope.preview = false;
     $scope.postTags = '';
-    /*if($scope.isLoggedIn === false){
+    if($scope.isLoggedIn === false){
       $location.path('/');
-    }*/
+    }
     
     var converter = new showdown.Converter();
     

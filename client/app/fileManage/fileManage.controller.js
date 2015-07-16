@@ -6,6 +6,9 @@ angular.module('workspaceApp')
     $scope.isLoggedIn = Auth.isLoggedIn();
     $scope.isAdmin = Auth.isAdmin();
     $scope.getCurrentUser = Auth.getCurrentUser();
+    if($scope.isLoggedIn === false){
+      $location.path('/login');
+    }
     
     $scope.posts = [];
     $http.get('/api/posts').success(function(posts){
