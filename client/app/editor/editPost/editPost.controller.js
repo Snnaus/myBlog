@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('workspaceApp')
-  .controller('EditPostCtrl', function ($scope, $routeParams, Auth, $http, $location) {
+  .controller('EditPostCtrl', function ($scope, $routeParams, Auth, $http, $location, $sce) {
     
      //This is the authentication of the view.
     $scope.isLoggedIn = Auth.isLoggedIn();
@@ -10,12 +10,12 @@ angular.module('workspaceApp')
     /*if($scope.isLoggedIn === false){
       $location.path('/');
     }*/
-    
     $scope.editPost = {};
     $http.get('/api/posts/'+$routeParams.id).success(function(post){
       $scope.editPost = post;
       $scope.postTags = post.category.join([',']);
       $scope.editPost.postDate = new Date(post.postDate);
+      $scope.picture = post.thumbPic;
     });
     
    
@@ -40,7 +40,11 @@ angular.module('workspaceApp')
       }
       if(content){
         $scope.editPost.formatDate = date.getMonth()+ 1 +'/'+ date.getDate() +'/'+date.getFullYear();
-        content = "<h2 class='postTitle'>"+$scope.editPost['name']+ "</h2>" + '\n' + '#####' + $scope.editPost.formatDate + '\n' + content;
+        var title = "<div class='mdl-card__title'><h2 class='postTitle'>"+$scope.editPost['name']+ "</h2></div>";
+        if($scope.picture){
+          title = "<div class='mdl-card__media' style=\"background-image: url('"+$scope.editPost['thumbPic']+"');\"><h2 class='postTitle'>"+$scope.editPost['name']+ "</h2></div>";
+        }
+        content =  title + '\n' + "<div class='mdl-card__subtitle-text date'>" + $scope.editPost.formatDate + '</div>\n' + content;
         content = content + "\n \n" + "<sup><sub> Written by: "+ $scope.editPost.author + "</sub></sup>";
         if(modTags){
           content = content + "<sup><sub>"+" || Tagged under: " + modTags + "</sub></sup>";
@@ -60,7 +64,7 @@ angular.module('workspaceApp')
     $scope.savePost = function(){
       var newTags = this.postTags.split([',']).map(function(tag){return tag.trim()});
       var urlID = this.editPost.for +'/'+ this.editPost.name.split([' ']).join(['-']);
-      console.log(urlID);
+      console.log(this.editPost);
       $scope.editPost['category'] = newTags;
       $scope.editPost['urlID'] = urlID;
       $http.put('/api/posts/'+$routeParams.id, $scope.editPost);

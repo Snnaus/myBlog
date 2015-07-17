@@ -45,16 +45,14 @@ angular.module('workspaceApp')
         if($scope.picture){
           title = "<div class='mdl-card__media' style=\"background-image: url('"+$scope.editPost['thumbPic']+"');\"><h2 class='postTitle'>"+$scope.editPost['name']+ "</h2></div>";
         }
-        console.log(title, converter.makeHtml(title));
-        content =  title + '\n' + '#####' + $scope.editPost.formatDate + '\n' + content;
+        content =  title + '\n' + "<div class='mdl-card__subtitle-text date'>" + $scope.editPost.formatDate + '</div>\n' + content;
         content = content + "\n \n" + "<sup><sub> Written by: "+ $scope.editPost.author + "</sub></sup>";
         if(modTags){
           content = content + "<sup><sub>"+" || Tagged under: " + modTags + "</sub></sup>";
         }
         content = content + "<a href='http://twitter.com/intent/tweet?status="+$scope.editPost['name'] + " by "+$scope.editPost.author+"'><span class='fa-stack smFooter'><i class='fa fa-twitter fa-stack-1x'></i></span></a>"+"<a ><span class='fa-stack smFooter'><i class='fa fa-facebook fa-stack-1x'></i></span></a>";
         //href='http://www.facebook.com/sharer/sharer.php?u=[URL]&title='"+$scope.title + " by "+$scope.author+"'
-        $scope.editPost.body = $sce.trustAsHtml(converter.makeHtml(content));
-        console.log($scope.editPost.body);
+        $scope.editPost.body = converter.makeHtml(content);
         //$scope.result = content;
         $scope.preview = true;
       }
@@ -67,7 +65,7 @@ angular.module('workspaceApp')
     $scope.savePost = function(){
       var newTags = this.postTags.split([',']).map(function(tag){return tag.trim()});
       var urlID = this.dateFor +'/'+ this.editPost.name.split([' ']).join(['-']);
-      console.log(urlID);
+      console.log(this.editPost);
       $scope.editPost['category'] = newTags;
       $scope.editPost['urlID'] = urlID;
       $http.post('/api/posts', $scope.editPost);

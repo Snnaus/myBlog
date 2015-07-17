@@ -1,7 +1,7 @@
 'use strict';
 
 angular.module('workspaceApp')
-  .controller('ShowTagCtrl', function ($scope, $http, $routeParams, $location) {
+  .controller('ShowTagCtrl', function ($scope, $http, $routeParams, $location, $sce) {
     $scope.posts = [];
     
     $http.get('/api/posts/').success(function(posts){

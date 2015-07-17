@@ -12,7 +12,7 @@
         </div>
         <textarea class='col-xs-12 col-sm-12 col-md-8 col-lg-8 inline-block center-block post' id='pad' ng-hide='preview' ng-model='editPost.markdown'>Write the text here...</textarea>
         <div class='mdl-grid matPost'>
-            <div class='mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col' id=markdown ng-show='preview' ng-bind-html='editPost.body'></div>
+            <div class='mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col' id=markdown ng-show='preview' ng-bind-html='editPost.body | toTrusted'></div>
         </div>
     </section>
         <div class='row'>

@@ -59,8 +59,8 @@ p, h2, .postTitle{
     font-family: 'Ubuntu', sans-serif;
 }
 
-h5{
-    padding: 0px 10px 0px 10px;
+.date{
+    padding: 0px 10px 10px 10px;
     font-family: 'Ubuntu', sans-serif;
 }
 
