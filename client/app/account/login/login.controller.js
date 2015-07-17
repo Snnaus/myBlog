@@ -15,7 +15,7 @@ angular.module('workspaceApp')
         })
         .then( function() {
           // Logged in, redirect to fileManage view
-          $location.path('/fileManage');
+          $location.url('/fileManage');
         })
         .catch( function(err) {
           $scope.errors.other = err.message;

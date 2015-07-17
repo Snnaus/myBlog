@@ -2,9 +2,12 @@
 
 
 <div class='container'>
-    <button id=newPost class='btn btn-success' ng-click="createPostRe()">Create Post</button>
+    <div class='row'>
+        <button id=logout class='btn btn-warning' ng-click="logout()">Logout</button>
+        <button id=newPost class='btn btn-success' ng-click="createPostRe()">Create Post</button>
+    </div>
     <ul>
-        <li ng-repeat='post in posts' id=manageLi>
+        <li ng-repeat='post in posts' id=manageLi class=row>
             <div class='inline-block'>
                 <a href='/id/{{post._id}}'>
                     {{post.name +' posted: '+post.formatDate}}

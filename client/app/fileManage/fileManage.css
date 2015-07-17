@@ -6,6 +6,8 @@
     margin-bottom: 10px;
 }
 
-#newPost{
+#newPost, #logout{
     float: right;
+    margin-right: 5px;
+    margin-bottom: 10px;
 }

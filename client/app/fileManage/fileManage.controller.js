@@ -1,9 +1,9 @@
 'use strict';
 
 angular.module('workspaceApp')
-  .controller('FileManageCtrl', function ($scope, $http, $location, Auth) {
+  .controller('FileManageCtrl', function ($scope, $http, $location, Auth, $route) {
     //This is the authentication of the view.
-   $scope.isLoggedIn = Auth.isLoggedIn();
+    $scope.isLoggedIn = Auth.isLoggedIn();
     $scope.isAdmin = Auth.isAdmin();
     $scope.getCurrentUser = Auth.getCurrentUser();
     if($scope.isLoggedIn === false){
@@ -20,7 +20,7 @@ angular.module('workspaceApp')
       var result = window.confirm(msg);
       if(result){
         $http.delete('/api/posts/'+post._id);
-        $location.path('/fileManage');
+        $route.reload();
       }
     };
     
@@ -30,5 +30,10 @@ angular.module('workspaceApp')
     
     $scope.editPostRe = function(id){
       $location.path('/editor/'+id);
-    }
+    };
+    
+    $scope.logout = function() {
+      Auth.logout();
+      $location.path('/login');
+    };
   });
