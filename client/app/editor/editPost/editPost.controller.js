@@ -7,9 +7,9 @@ angular.module('workspaceApp')
     $scope.isLoggedIn = Auth.isLoggedIn();
     $scope.isAdmin = Auth.isAdmin();
     $scope.getCurrentUser = Auth.getCurrentUser();
-    /*if($scope.isLoggedIn === false){
+    if($scope.isLoggedIn === false){
       $location.path('/');
-    }*/
+    }
     $scope.editPost = {};
     $http.get('/api/posts/'+$routeParams.id).success(function(post){
       $scope.editPost = post;

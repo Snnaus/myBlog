@@ -6,9 +6,9 @@ angular.module('workspaceApp')
     $scope.isLoggedIn = Auth.isLoggedIn();
     $scope.isAdmin = Auth.isAdmin();
     $scope.getCurrentUser = Auth.getCurrentUser();
-    /*if($scope.isLoggedIn === false){
+    if($scope.isLoggedIn === false){
       $location.path('/');
-    }*/
+    }
     $scope.picture = false;
     //This is all of the post relevant items for the view.
     $scope.editPost = {
