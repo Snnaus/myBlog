@@ -1,6 +1,7 @@
 
 body{
     background-color: ivory;
+    z-index: -1;
 }
 
 .thing-form {
@@ -43,7 +44,7 @@ body{
 .artImg{
     max-height: 100px;
     float: left;
-    padding: 0px 10px 10px 10px;
+    padding: 0px 10px 0px 10px;
 }
 
 .post{
@@ -53,8 +54,8 @@ body{
     background-color: white;
 }
 
-p, h3, .postTitle{
-    padding: 0px 10px 10px 10px;
+p, h2, .postTitle{
+    padding: 0px 10px 0px 10px;
     font-family: 'Ubuntu', sans-serif;
 }
 
@@ -64,5 +65,9 @@ h5{
 }
 
 p{
-    font-size: 18px;
+    font-size: 16px;
+}
+
+.matPost{
+    max-width: 900px;
 }

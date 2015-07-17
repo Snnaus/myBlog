@@ -1,15 +1,15 @@
 'use strict';
 
 angular.module('workspaceApp')
-  .controller('EditorCtrl', function ($scope, Auth, $location, $http) {
+  .controller('EditorCtrl', function ($scope, Auth, $location, $http, $sce) {
     //This is the authentication of the view.
     $scope.isLoggedIn = Auth.isLoggedIn();
     $scope.isAdmin = Auth.isAdmin();
     $scope.getCurrentUser = Auth.getCurrentUser();
-    if($scope.isLoggedIn === false){
+    /*if($scope.isLoggedIn === false){
       $location.path('/');
-    }
-    
+    }*/
+    $scope.picture = false;
     //This is all of the post relevant items for the view.
     $scope.editPost = {
       name: '',
@@ -41,14 +41,20 @@ angular.module('workspaceApp')
       }
       if(content){
         $scope.editPost.formatDate = date.getMonth()+ 1 +'/'+ date.getDate() +'/'+date.getFullYear();
-        content = "<h2 class='postTitle'>"+$scope.editPost['name']+ "</h2>" + '\n' + '#####' + $scope.editPost.formatDate + '\n' + content;
+        var title = "<div class='mdl-card__title'><h2 class='postTitle'>"+$scope.editPost['name']+ "</h2></div>";
+        if($scope.picture){
+          title = "<div class='mdl-card__media' style=\"background-image: url('"+$scope.editPost['thumbPic']+"');\"><h2 class='postTitle'>"+$scope.editPost['name']+ "</h2></div>";
+        }
+        console.log(title, converter.makeHtml(title));
+        content =  title + '\n' + '#####' + $scope.editPost.formatDate + '\n' + content;
         content = content + "\n \n" + "<sup><sub> Written by: "+ $scope.editPost.author + "</sub></sup>";
         if(modTags){
           content = content + "<sup><sub>"+" || Tagged under: " + modTags + "</sub></sup>";
         }
         content = content + "<a href='http://twitter.com/intent/tweet?status="+$scope.editPost['name'] + " by "+$scope.editPost.author+"'><span class='fa-stack smFooter'><i class='fa fa-twitter fa-stack-1x'></i></span></a>"+"<a ><span class='fa-stack smFooter'><i class='fa fa-facebook fa-stack-1x'></i></span></a>";
         //href='http://www.facebook.com/sharer/sharer.php?u=[URL]&title='"+$scope.title + " by "+$scope.author+"'
-        $scope.editPost.body = converter.makeHtml(content);
+        $scope.editPost.body = $sce.trustAsHtml(converter.makeHtml(content));
+        console.log($scope.editPost.body);
         //$scope.result = content;
         $scope.preview = true;
       }

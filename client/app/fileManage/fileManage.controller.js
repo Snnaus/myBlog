@@ -6,12 +6,11 @@ angular.module('workspaceApp')
     $scope.isLoggedIn = Auth.isLoggedIn();
     $scope.isAdmin = Auth.isAdmin();
     $scope.getCurrentUser = Auth.getCurrentUser();
-    if($scope.isLoggedIn === false){
-      $location.path('/login');
-    }
+    
     
     $scope.posts = [];
     $http.get('/api/posts').success(function(posts){
+      console.log($scope.isLoggedIn);
       $scope.posts = posts;
     });
     
@@ -36,4 +35,9 @@ angular.module('workspaceApp')
       Auth.logout();
       $location.path('/login');
     };
+    
+    
+    if($scope.isLoggedIn === false){
+      $location.path('/login');
+    }
   });
