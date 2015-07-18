@@ -44,13 +44,15 @@ angular.module('workspaceApp')
         if($scope.picture){
           title = "<div class='mdl-card__media' style=\"background-image: url('"+$scope.editPost['thumbPic']+"');\"><h2 class='postTitle'>"+$scope.editPost['name']+ "</h2></div>";
         }
-        content =  title + '\n' + "<div class='mdl-card__subtitle-text date'>" + $scope.editPost.formatDate + '</div>\n' + content;
-        content = content + "\n \n" + "<sup><sub> Written by: "+ $scope.editPost.author + "</sub></sup>";
+        content =  title + '\n' + "<div class='mdl-card__subtitle-text date'>" + $scope.editPost.formatDate + '</div>\n' + "<div class='mdl-card__supporting-text'>"+ content+"</div>";
+        var foot ="\n \n" + "<div class='mdl-card__supporting-text'><sup><sub> Written by: "+ $scope.editPost.author + "</sub></sup>";
         if(modTags){
-          content = content + "<sup><sub>"+" || Tagged under: " + modTags + "</sub></sup>";
+          foot = foot + "<sup><sub>"+" || Tagged under: " + modTags + "</sub></sup>";
         }
-        content = content + "<a href='http://twitter.com/intent/tweet?status="+$scope.editPost['name'] + " by "+$scope.editPost.author+"'><span class='fa-stack smFooter'><i class='fa fa-twitter fa-stack-1x'></i></span></a>"+"<a ><span class='fa-stack smFooter'><i class='fa fa-facebook fa-stack-1x'></i></span></a>";
+        foot = foot + "<a href='http://twitter.com/intent/tweet?status="+$scope.editPost['name'] + " by "+$scope.editPost.author+"'><span class='fa-stack smFooter'><i class='fa fa-twitter fa-stack-1x'></i></span></a>"+"<a ><span class='fa-stack smFooter'><i class='fa fa-facebook fa-stack-1x'></i></span></a>";
         //href='http://www.facebook.com/sharer/sharer.php?u=[URL]&title='"+$scope.title + " by "+$scope.author+"'
+        foot = foot + "</div>";
+        content = content + foot;
         $scope.editPost.body = converter.makeHtml(content);
         //$scope.result = content;
         $scope.preview = true;
