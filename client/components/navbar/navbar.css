@@ -34,3 +34,8 @@
     float: none;
     display:inline-block;
 }
+
+#searchForm{
+    max-width: 180px;
+    float: right;
+}

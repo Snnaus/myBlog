@@ -18,7 +18,7 @@ angular.module('workspaceApp')
     $scope.isAdmin = Auth.isAdmin;
     $scope.getCurrentUser = Auth.getCurrentUser;
 
-    
+    componentHandler.upgradeDom();
 
     $scope.isActive = function(route) {
       return route === $location.path();
