@@ -54,8 +54,12 @@ body{
     background-color: white;
 }
 
-p, h2, .postTitle{
+.postTitle, .smPostTitle{
     padding: 0px 10px 0px 10px;
+}
+
+p, h2, .postTitle{
+    
     font-family: 'Ubuntu', sans-serif;
 }
 

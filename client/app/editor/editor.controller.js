@@ -41,11 +41,13 @@ angular.module('workspaceApp')
       }
       if(content){
         $scope.editPost.formatDate = date.getMonth()+ 1 +'/'+ date.getDate() +'/'+date.getFullYear();
-        var title = "<div class='mdl-card__title'><h2 class='postTitle'>"+$scope.editPost['name']+ "</h2></div>";
+        var title = "<h2 class='postTitle hidden-xs'>"+$scope.editPost['name']+ "</h2><h4 class='smPostTitle visible-xs'>"+$scope.editPost['name']+ "</h4>";
         if($scope.picture){
-          title = "<div class='mdl-card__media' style=\"background-image: url('"+$scope.editPost['thumbPic']+"');\"><h2 class='postTitle'>"+$scope.editPost['name']+ "</h2></div>";
+          title = "<div class='mdl-card__media' style=\"background-image: url('"+$scope.editPost['thumbPic']+"');\">"+title+"</div>";
+        } else{
+          title = "<div class='mdl-card__title'>"+title+"</div>";
         }
-        content =  title + '\n' + "<div class='mdl-card__subtitle-text date'>" + $scope.editPost.formatDate + '</div>\n' + "<div class='mdl-card__supporting-text'>"+ content+"</div>";
+        content =  title + '\n' + "<div class='mdl-card__subtitle-text date'>" + $scope.editPost.formatDate + '</div>\n' + "<div class='mdl-card__supporting-text'>"+ converter.makeHtml(content)+"</div>";
         var foot ="\n \n" + "<div class='mdl-card__supporting-text'><sup><sub> Written by: "+ $scope.editPost.author + "</sub></sup>";
         if(modTags){
           foot = foot + "<sup><sub>"+" || Tagged under: " + modTags + "</sub></sup>";

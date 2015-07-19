@@ -17,10 +17,17 @@ angular.module('workspaceApp')
     $scope.isLoggedIn = Auth.isLoggedIn;
     $scope.isAdmin = Auth.isAdmin;
     $scope.getCurrentUser = Auth.getCurrentUser;
+    $scope.query = '';
 
     componentHandler.upgradeDom();
 
     $scope.isActive = function(route) {
       return route === $location.path();
+    };
+    
+    $scope.searchSite = function(query){
+      if(query){
+        $location.path('/search/'+query);
+      }
     };
   });
