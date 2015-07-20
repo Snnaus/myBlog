@@ -12,5 +12,8 @@ angular.module('workspaceApp')
       }).when('/cat/:cat/',{
         templateUrl: 'app/main/main.html',
         controller: 'ShowTagCtrl'
+      }).when('/search/:query', {
+        templateUrl: 'app/main/main.html',
+        controller: 'SearchCtrl'
       });
   });
