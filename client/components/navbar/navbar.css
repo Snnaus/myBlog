@@ -28,13 +28,17 @@
     background-color: ivory;
 }
 
-.navbar.center {
+button.btn.btn-default {
+  height: 34px;
+}
+
+/*.navbar.center {
     text-align: center;
 }
 .navbar.center .nav {
     float: none;
     display:inline-block;
-}
+}*/
 
 #searchForm, #demo-menu-lower-right{
     max-width: 20%;

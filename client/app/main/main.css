@@ -58,7 +58,7 @@ body{
     padding: 0px 10px 0px 10px;
 }
 
-p, h2, .postTitle{
+p, h2, .postTitle, .mdl-card__supporting-text, .postFooter{
     
     font-family: 'Ubuntu', sans-serif;
 }
@@ -74,4 +74,9 @@ p{
 
 .matPost{
     max-width: 900px;
+}
+
+.postFooter{
+    padding: 0px 16px 16px 16px;
+    font-size: 11px;
 }
