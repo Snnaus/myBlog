@@ -23,6 +23,7 @@ angular.module('workspaceApp')
     };
     $scope.preview = false;
     $scope.postTags = '';
+    $scope.color = '';
     
     
     var converter = new showdown.Converter();
@@ -39,7 +40,7 @@ angular.module('workspaceApp')
       }
       if(content){
         $scope.editPost.formatDate = date.getMonth()+ 1 +'/'+ date.getDate() +'/'+date.getFullYear();
-        var title = "<h2 class='postTitle hidden-xs'>"+$scope.editPost['name']+ "</h2><h4 class='smPostTitle visible-xs'>"+$scope.editPost['name']+ "</h4>";
+        var title = "<h2 class='postTitle hidden-xs' style=\"color:"+$scope.titleColor+"\">"+$scope.editPost['name']+ "</h2><h4 class='smPostTitle visible-xs' style=\"color:"+$scope.titleColor+"\">"+$scope.editPost['name']+ "</h4>";
         if($scope.picture){
           title = "<div class='mdl-card__media' style=\"background-image: url('"+$scope.editPost['thumbPic']+"');\">"+title+"</div>";
         } else{
