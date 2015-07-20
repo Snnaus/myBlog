@@ -27,10 +27,8 @@ angular.module('workspaceApp')
     var converter = new showdown.Converter();
     
     $scope.convert = function(content, date){
-      console.log($scope.editPost, date);
       var newTags = this.postTags.split([',']), modTags = null;
       newTags = newTags.map(function(tag){return tag.trim()});
-      console.log(newTags);
       if(newTags.length > 0 && newTags[0] !== ''){
         modTags = newTags.map(function(data){
           return "<a href='/cat/"+data+"'>"+data+"</a>";

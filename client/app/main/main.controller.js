@@ -6,7 +6,6 @@ angular.module('workspaceApp')
 
     $http.get('/api/posts').success(function(posts) {
       $scope.posts = posts;
-      console.log(posts);
     });
 
     

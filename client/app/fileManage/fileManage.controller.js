@@ -10,7 +10,6 @@ angular.module('workspaceApp')
     
     $scope.posts = [];
     $http.get('/api/posts').success(function(posts){
-      console.log($scope.isLoggedIn);
       $scope.posts = posts;
     });
     

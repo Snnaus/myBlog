@@ -9,7 +9,6 @@ angular.module('workspaceApp')
       var query = new RegExp(thing);
     
       $scope.posts = $scope.posts.filter(function(post){return query.test(post.body)});
-      console.log(thing);
     });
     
     
