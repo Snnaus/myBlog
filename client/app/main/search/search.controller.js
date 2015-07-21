@@ -4,7 +4,7 @@ angular.module('workspaceApp')
   .controller('SearchCtrl', function ($scope, $http, $routeParams) {
     var rawPosts = [];
     $http.get('/api/posts').success(function(posts){
-      $scope.posts = posts;
+      $scope.posts = posts.reverse();
       var thing = "\\b"+$routeParams.query+"\\b";
       var query = new RegExp(thing, 'i');
     

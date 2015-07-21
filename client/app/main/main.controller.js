@@ -5,7 +5,7 @@ angular.module('workspaceApp')
     $scope.posts = [];
 
     $http.get('/api/posts').success(function(posts) {
-      $scope.posts = posts;
+      $scope.posts = posts.reverse();
     });
 
     

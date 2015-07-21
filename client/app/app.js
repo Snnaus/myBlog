@@ -5,7 +5,8 @@ angular.module('workspaceApp', [
   'ngResource',
   'ngSanitize',
   'ngRoute',
-  'ui.bootstrap'
+  'ui.bootstrap',
+  'angularUtils.directives.dirPagination'
 ])
   .config(function ($routeProvider, $locationProvider, $httpProvider) {
     $routeProvider

@@ -5,7 +5,7 @@ angular.module('workspaceApp')
     $scope.posts = [];
     
     $http.get('/api/posts/').success(function(posts){
-      $scope.posts = posts.filter(function(post){return post.category.indexOf($routeParams.cat) !== -1});
+      $scope.posts = posts.reverse().filter(function(post){return post.category.indexOf($routeParams.cat) !== -1});
       if($scope.posts.length < 1){
         $location.path('/');
       }
