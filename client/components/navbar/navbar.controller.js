@@ -26,6 +26,8 @@ angular.module('workspaceApp')
     $scope.searchSite = function(query){
       if(query){
         $location.path('/search/'+query);
+      } else{
+        $location.path('/');
       }
     };
   });

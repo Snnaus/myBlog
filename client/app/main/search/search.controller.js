@@ -6,7 +6,7 @@ angular.module('workspaceApp')
     $http.get('/api/posts').success(function(posts){
       $scope.posts = posts;
       var thing = "\\b"+$routeParams.query+"\\b";
-      var query = new RegExp(thing);
+      var query = new RegExp(thing, 'i');
     
       $scope.posts = $scope.posts.filter(function(post){return query.test(post.body)});
     });
