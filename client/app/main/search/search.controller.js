@@ -9,6 +9,11 @@ angular.module('workspaceApp')
       var query = new RegExp(thing, 'i');
     
       $scope.posts = $scope.posts.filter(function(post){return query.test(post.body)});
+      if(!$scope.posts.length){
+        $scope.posts.push({
+          body: '<h2> There are no matching results.</h2>'
+        });
+      }
     });
     
     
