@@ -46,12 +46,12 @@ angular.module('workspaceApp')
         } else{
           title = "<div class='mdl-card__title'>"+title+"</div>";
         }
-        content =  title + '\n' + "<div class='mdl-card__subtitle-text date'>" + $scope.editPost.formatDate + '</div>\n' + "<div class='mdl-card__supporting-text'>"+ converter.makeHtml(content)+"</div>";
+        content =  title + '\n' + "<div class='mdl-card__subtitle-text date'>" + $scope.editPost.formatDate + "<a href='http://twitter.com/intent/tweet?status="+$scope.editPost['name'] + " by "+$scope.editPost.author+"'><span class='fa-stack smFooter'><i class='fa fa-twitter fa-stack-1x'></i></span></a>"+"<a ><span class='fa-stack smFooter'><i class='fa fa-facebook fa-stack-1x'></i></span></a>"+'</div>\n' + "<div class='mdl-card__supporting-text'>"+ converter.makeHtml(content)+"</div>";
         var foot ="\n \n" + "<div class='postFooter'> Written by: "+ $scope.editPost.author + "";
         if(modTags){
           foot = foot + ""+" || Tagged under: " + modTags + "";
         }
-        foot = foot + "<a href='http://twitter.com/intent/tweet?status="+$scope.editPost['name'] + " by "+$scope.editPost.author+"'><span class='fa-stack smFooter'><i class='fa fa-twitter fa-stack-1x'></i></span></a>"+"<a ><span class='fa-stack smFooter'><i class='fa fa-facebook fa-stack-1x'></i></span></a>";
+        foot = foot //+ "<a href='http://twitter.com/intent/tweet?status="+$scope.editPost['name'] + " by "+$scope.editPost.author+"'><span class='fa-stack smFooter'><i class='fa fa-twitter fa-stack-1x'></i></span></a>"+"<a ><span class='fa-stack smFooter'><i class='fa fa-facebook fa-stack-1x'></i></span></a>";
         //href='http://www.facebook.com/sharer/sharer.php?u=[URL]&title='"+$scope.title + " by "+$scope.author+"'
         foot = foot + "</div>";
         content = content + foot;
