@@ -2,7 +2,7 @@
 
 
 <div class='mdl-grid matPost'>
-  <div class='mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col' dir-paginate='post in posts | itemsPerPage: 2' ng-bind-html='post.body | toTrusted'></div>
+  <div class='mdl-card mdl-shadow--4dp mdl-cell mdl-cell--12-col' dir-paginate='post in posts | itemsPerPage: 5' ng-bind-html='post.body | toTrusted'></div>
 </div>
 <div id=pageControlHolder class='text-center'>
   <dir-pagination-controls></dir-pagination-controls>

@@ -40,11 +40,18 @@ button.btn.btn-default {
     display:inline-block;
 }*/
 
-#searchForm, #demo-menu-lower-right{
-    max-width: 20%;
-    float: right;
+
+.fa-twitter.navSM:hover{
+    color: #55acee;
+    border-radius: 60px;
+    background-color: transparent;
 }
 
-#demo-menu-lower-right{
-    margin: 15px 0px 30px 0px;
+.fa-github.navSM:hover{
+    color: #4078c0;
+    border-radius: 60px;
+}
+
+.fa-stack.navSM{
+    padding-top: 5px;
 }

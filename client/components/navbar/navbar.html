@@ -4,13 +4,16 @@
   <div class="container">
     <div class="navbar-header smallHeadTitle">
       <h3 class='headTitle text-left visible-xs' >Glenn Nausley
+          <!--<a href='https://github.com/Snnaus'><span class='fa-stack visible-xs navSM navbar-right inline-block'><i class='fa fa-github fa-stack-1x navSM'></i></span></a>
+          <a href ='https://twitter.com/Nausleyg'><span class='fa-stack visible-xs navSM navbar-right inline-block'><i class='fa fa-twitter fa-stack-1x navSM'></i></span></a>
+        -->
         <button class="navbar-toggle" type="button" ng-click="isCollapsed = !isCollapsed">
           <span class="sr-only">Toggle navigation</span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
           <span class="icon-bar"></span>
         </button>
-      </h>
+      </h3>
     </div>
     <div collapse="isCollapsed" class="navbar-collapse collapse custNav" id="navbar-main">
       <ul class="nav navbar-nav">
@@ -18,12 +21,14 @@
             <a ng-href="{{item.link}}">{{item.title}}</a>
         </li>
       </ul>
-      
+      <a href='https://github.com/Snnaus'><span class='fa-stack fa-lg  navSM navbar-right'><i class='fa fa-github fa-stack-1x fa-lg navSM'></i></span></a>
+      <a href ='https://twitter.com/Nausleyg'><span class='fa-stack fa-lg navSM navbar-right'><i class='fa fa-twitter fa-stack-1x fa-lg navSM'></i></span></a>
       <form class='navbar-form navbar-right' role='search' ng-submit='searchSite(query)'>
         <div class='form-group'>
           <input type='text' class='form-control' placeholder='Search' ng-model='query'>
         </div>
-        <button type='submit' class='btn btn-default'><span class='glyphicon glyphicon-search' aria-hidden=true></span></button>
+        <button type='submit' class='btn btn-default hidden-xs'><span class='glyphicon glyphicon-search' aria-hidden=true></span></button>
+        <input type="submit" class='visible-xs' style="position: absolute; left: -9999px; width: 1px; height: 1px;"/>
       </form>
       
     </div>
