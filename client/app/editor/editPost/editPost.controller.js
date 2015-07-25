@@ -38,11 +38,11 @@ angular.module('workspaceApp')
       }
       if(content){
         $scope.editPost.formatDate = date.getMonth()+ 1 +'/'+ date.getDate() +'/'+date.getFullYear();
-        var title = "<h2 class='postTitle hidden-xs' style=\"color:"+$scope.titleColor+"\">"+$scope.editPost['name']+ "</h2><h4 class='smPostTitle visible-xs' style=\"color:"+$scope.titleColor+"\">"+$scope.editPost['name']+ "</h4>";
+        var title = "<h2 class='postTitle hidden-xs' style=\"color:"+$scope.editPost.titleColor+"\">"+$scope.editPost['name']+ "</h2><h4 class='smPostTitle visible-xs' style=\"color:"+$scope.titleColor+"\">"+$scope.editPost['name']+ "</h4>";
         if($scope.picture){
-          title = "<div class='mdl-card__media' style=\"background-image: url('"+$scope.editPost['thumbPic']+"');\">"+title+"</div>";
+          title = "<div class='mdl-card__media' style=\"background-image: url('"+$scope.editPost['thumbPic']+"');"+$scope.editPost.titleStyleing+"\">"+title+"</div>";
         } else{
-          title = "<div class='mdl-card__title'>"+title+"</div>";
+          title = "<div class='mdl-card__title' style=\"background-image: url('"+$scope.editPost['thumbPic']+"');"+$scope.editPost.titleStyleing+"\">"+title+"</div>";
         }
         content =  title + '\n' + "<div class='mdl-card__subtitle-text date'>" + $scope.editPost.formatDate + "<a href='http://twitter.com/intent/tweet?status="+$scope.editPost['name'] + " by "+$scope.editPost.author+"'><span class='fa-stack smFooter'><i class='fa fa-twitter fa-stack-1x'></i></span></a>"+"<a ><span class='fa-stack smFooter'><i class='fa fa-facebook fa-stack-1x'></i></span></a>"+'</div>\n' + "<div class='mdl-card__supporting-text'>"+ converter.makeHtml(content)+"</div>";
         var foot ="\n \n" + "<div class='postFooter'> Written by: "+ $scope.editPost.author + "";

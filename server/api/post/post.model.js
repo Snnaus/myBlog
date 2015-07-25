@@ -14,7 +14,9 @@ var PostSchema = new Schema({
   thumbPic: String,
   postDate: Object,
   formatDate: String,
-  urlID: String
+  urlID: String,
+  titleStyleing: String,
+  titleColor: String
 });
 
 module.exports = mongoose.model('Post', PostSchema);

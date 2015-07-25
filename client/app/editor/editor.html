@@ -18,8 +18,9 @@
         <div class='row'>
         <div class='col-xs-6 col-md-6 col-lg-6'>
             <input id='tagInp' class='text-center' type=text placeholder='Tags (seperate by comma)' ng-model='postTags' ng-hide='preview'>
-            <input id='colInp' class='text-center' type=text placeholder='Title Color (name or hexcode)' ng-model='titleColor' ng-hide='preview'>
+            <input id='colInp' class='text-center' type=text placeholder='Title Color (name or hexcode)' ng-model='editPost.titleColor' ng-hide='preview'>
             <input id='picInp' class='text-center' type=text placeholder='Picture URL' ng-model='editPost.thumbPic' ng-show='picture && !preview'>
+            <input id='titleStyleing' class='text-center' type=text placeholder='Add Styling to the title card' ng-model='editPost.titleStyleing' ng-hide='preview'>
         </div>
         <div class='col-xs-4 col-md-4 col-lg-4'>
             <button class='btn btn-warning text-center' ng-click='convert(editPost.markdown, editPost.postDate)' ng-hide='preview'>Preview</button>
